@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, Component } from 'react';
 import User from './User';
 
 import classes from './Users.module.css';
@@ -8,6 +8,26 @@ const DUMMY_USERS = [
   { id: 'u2', name: 'Manuel' },
   { id: 'u3', name: 'Julie' },
 ];
+
+
+class Users extends Component {
+  constructor(){
+    this.state = {}
+  }
+  toggleUsersHandler() {
+
+  }
+  render (){
+    return (
+      <div className={classes.users}>
+        <button onClick={toggleUsersHandler}>
+          {showUsers ? 'Hide' : 'Show'} Users
+        </button>
+        {showUsers && usersList}
+      </div>
+    );
+  }
+}
 
 const Users = () => {
   const [showUsers, setShowUsers] = useState(true);
